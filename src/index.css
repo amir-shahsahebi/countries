@@ -1,6 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400&display=swap");
 * {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", Courier, monospace;
+  font-family: "Roboto Flex", Courier, monospace;
+}
+
+:root {
+  --first-color: #f1f2f6;
+  --second-color: black;
+}
+
+.dark-mode {
+  --first-color: #2f3542;
+  --second-color: white;
+}
+
+body {
+  /* background: #f1f2f6; */
+  background: var(--first-color);
+  color: var(--second-color);
+}
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 40px 80px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+i {
+  padding-right: 10px;
 }
