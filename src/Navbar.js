@@ -1,13 +1,10 @@
-const Navbar = () => {
+const Navbar = ({ colorMode }) => {
   return (
     <nav>
       <h1>Where is the world?</h1>
       <span
-        style={{
-          root: {
-            __acolor: "red",
-          },
-        }}
+        style={{ backgroundColor: "red" }}
+        onClick={() => colorMode()}
         className="switch"
       >
         <i className="fas fa-sun"></i>
