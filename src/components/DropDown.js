@@ -7,22 +7,23 @@ const DropDown = ({ optionList }) => {
   useEffect(() => {
     const onBodyClick = (e) => {
       if (ref.current.contains(e.target)) {
+        console.log("im contains");
         return;
       }
+      console.log("im out");
       setClicked(false);
     };
-    document.body.addEventListener("click", onBodyClick, { capture: true });
+    window.addEventListener("click", onBodyClick);
 
     return () => {
-      document.body.removeEventListener("click", onBodyClick, {
-        capture: true,
-      });
+      window.removeEventListener("click", onBodyClick);
     };
-  }, [clicked]);
+  }, []);
   const handleClick = (e) => {
     // console.dir(e.target.innerText);
     setSelected(e.target.innerText);
-    setClicked(!clicked);
+    setClicked(false);
+    console.log("Im handle Click");
   };
   return (
     <div ref={ref} className="dropDownContainer">
