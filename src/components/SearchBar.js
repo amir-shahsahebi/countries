@@ -1,6 +1,14 @@
 import DropDown from "./DropDown";
+import { getCountries } from "../apis/getCountries";
+import { useEffect, useState } from "react";
+import RenderedItems from "./RenderedItems";
 
 const SearchBar = () => {
+  const [countries, setCountries] = useState([]);
+  //   console.log(countries);
+  useEffect(() => {
+    getCountries().then((res) => setCountries(res.data));
+  }, []);
   const optionList = [
     "All Regions",
     "Africa",
@@ -10,22 +18,17 @@ const SearchBar = () => {
     "Oceania",
   ];
   return (
-    <div className="searchBar">
-      <div className="search">
-        <i className="fas fa-search"></i>
-        <input type="text" placeholder="Search for a country" />
+    <div>
+      <div className="searchBar">
+        <div className="search">
+          <i className="fas fa-search"></i>
+          <input type="text" placeholder="Search for a country" />
+        </div>
+        <DropDown optionList={optionList} />
       </div>
-      <DropDown optionList={optionList} />
-      {/* <div className="select">
-        <select name="dropDown" id="">
-          <option value="">All Regions</option>
-          <option value="">Africa</option>
-          <option value="">America</option>
-          <option value="">Asia</option>
-          <option value="">Europe</option>
-          <option value="">Oceania</option>
-        </select>
-      </div> */}
+      <div className="content">
+        <RenderedItems countries={countries} />
+      </div>
     </div>
   );
 };
