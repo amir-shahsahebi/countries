@@ -8,23 +8,31 @@
 :root {
   --first-color: #f1f2f6;
   --second-color: black;
+  --third-color: #fff;
 }
 
 .dark-mode {
-  --first-color: #2f3542;
+  --first-color: #393943;
   --second-color: white;
-}
-
-p,
-h3,
-span {
-  color: var(--second-color);
+  --third-color: #2e2f36;
 }
 
 body {
   /* background: #f1f2f6; */
   background: var(--first-color);
   color: var(--second-color);
+  transition: 0.4s;
+}
+p,
+h3,
+h1,
+input,
+span,
+input,
+i,
+::placeholder {
+  color: var(--second-color);
+  /* color: red; */
 }
 
 nav {
@@ -32,10 +40,14 @@ nav {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
+  background: var(--third-color);
   padding: 40px 80px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.switch {
+  cursor: pointer;
 }
 i {
   padding-right: 10px;
@@ -52,7 +64,7 @@ i {
 }
 
 .search {
-  background-color: #fff;
+  background-color: var(--third-color);
   padding: 10px;
   border-radius: 5px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
@@ -61,6 +73,7 @@ i {
 
 .search input {
   /* background-color: aqua; */
+  background-color: var(--third-color);
   width: 16rem;
   height: 30px;
   border: 0;
@@ -90,12 +103,13 @@ i {
   display: inline-block;
   width: 8rem;
   line-height: 30px;
-  background-color: #fff;
+  background-color: var(--third-color);
   padding: 10px;
+  padding-left: 15px;
   border-radius: 5px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-  text-align: center;
+  /* text-align: center; */
   /* color: red; */
 }
 
@@ -108,7 +122,7 @@ i {
   position: absolute;
 }
 .dropDown ul {
-  background-color: #fff;
+  background-color: var(--third-color);
   border-radius: 5px;
   list-style: none;
   display: flex;
@@ -124,8 +138,9 @@ i {
   width: 8rem;
   padding: 4px 10px;
   line-height: 30px;
-  text-align: center;
-  border-bottom: #2f3542 0.5px solid;
+  /* text-align: center; */
+  padding-left: 15px;
+  border-bottom: var(--second-color) 0.5px solid;
 }
 .dropDown ul li:last-child {
   border-bottom: 0;
@@ -144,7 +159,7 @@ i {
   /* height: 400px; */
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--third-color);
   margin: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -192,6 +207,7 @@ i {
   bottom: 20px;
   right: 10px;
   margin: 5px;
-  opacity: 40%;
+  opacity: 80%;
   display: none;
+  background-color: #fff;
 }

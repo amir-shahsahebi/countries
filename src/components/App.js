@@ -14,7 +14,6 @@ function App() {
 
   const handleColor = () => {
     setLightMode(!lightMode);
-    console.log("hi" + lightMode);
   };
 
   return (

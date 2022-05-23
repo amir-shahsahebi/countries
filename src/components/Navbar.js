@@ -3,7 +3,7 @@ const Navbar = ({ colorMode }) => {
     <nav>
       <h1>Where is the world?</h1>
       <span
-        style={{ backgroundColor: "red" }}
+        // style={{ backgroundColor: "red" }}
         onClick={() => colorMode()}
         className="switch"
       >
