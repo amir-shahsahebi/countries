@@ -2,6 +2,7 @@ import DropDown from "./DropDown";
 import { getCountries } from "../apis/getCountries";
 import { useEffect, useState } from "react";
 import RenderedItems from "./RenderedItems";
+import InputSearch from "./InputSearch";
 
 const optionList = [
   "All Regions",
@@ -13,7 +14,7 @@ const optionList = [
 ];
 const SearchBar = () => {
   const [countries, setCountries] = useState([]);
-  const [term, setTerm] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState(optionList[0]);
   //   console.log(countries);
   useEffect(() => {
@@ -23,7 +24,9 @@ const SearchBar = () => {
   const handleRegionClick = (text) => {
     setSelectedRegion(text);
   };
-
+  const handleSearchTerm = (term) => {
+    setSearchTerm(term);
+  };
   const filteredCountries = (selectedRegion) => {
     return selectedRegion === "All Regions"
       ? countries
@@ -33,10 +36,10 @@ const SearchBar = () => {
   return (
     <div>
       <div className="searchBar">
-        <div className="search">
-          <i className="fas fa-search"></i>
-          <input type="text" placeholder="Search for a country" />
-        </div>
+        <InputSearch
+          searchTerm={searchTerm}
+          handleSearchTerm={handleSearchTerm}
+        />
         <DropDown
           optionList={optionList}
           selectedRegion={selectedRegion}
