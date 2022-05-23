@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
-const DropDown = ({ optionList }) => {
-  const [selected, setSelected] = useState(optionList[0]);
+const DropDown = ({ optionList, handleRegionClick, selectedRegion }) => {
+  // const [selected, setSelected] = useState(optionList[0]);
   const [clicked, setClicked] = useState(false);
   const ref = useRef();
   useEffect(() => {
     const onBodyClick = (e) => {
       if (ref.current.contains(e.target)) {
-        console.log("im contains");
+        // console.log("im contains");
         return;
       }
       console.log("im out");
@@ -21,19 +21,20 @@ const DropDown = ({ optionList }) => {
   }, []);
   const handleClick = (e) => {
     // console.dir(e.target.innerText);
-    setSelected(e.target.innerText);
+    // setSelected(e.target.innerText);
     setClicked(false);
-    console.log("Im handle Click");
+    // console.log("Im handle Click");
+    handleRegionClick(e.target.innerText);
   };
   return (
     <div ref={ref} className="dropDownContainer">
       <span onClick={() => setClicked(!clicked)} className="selectedValue">
-        {selected}
+        {selectedRegion}
       </span>
       <div className="dropDown" style={!clicked ? { display: "none" } : null}>
         <ul>
           {optionList
-            .filter((option) => option !== selected)
+            .filter((option) => option !== selectedRegion)
             .map((option) => {
               return (
                 <li key={option} onClick={handleClick}>
