@@ -10,7 +10,7 @@ const DropDown = ({ optionList, handleRegionClick, selectedRegion }) => {
         // console.log("im contains");
         return;
       }
-      console.log("im out");
+      // console.log("im out");
       setClicked(false);
     };
     window.addEventListener("click", onBodyClick);

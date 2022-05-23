@@ -7,7 +7,7 @@ import InputSearch from "./InputSearch";
 const optionList = [
   "All Regions",
   "Africa",
-  "America",
+  "Americas ",
   "Asia",
   "Europe",
   "Oceania",
@@ -27,10 +27,25 @@ const SearchBar = () => {
   const handleSearchTerm = (term) => {
     setSearchTerm(term);
   };
-  const filteredCountries = (selectedRegion) => {
-    return selectedRegion === "All Regions"
+  const filteredCountries = (selectedRegion, searchTerm) => {
+    return selectedRegion === "All Regions" && !searchTerm
       ? countries
-      : countries.filter((country) => country.region === selectedRegion);
+      : selectedRegion === "All Regions" && searchTerm
+      ? countries.filter((country) =>
+          country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : !searchTerm
+      ? countries.filter((country) => country.region === selectedRegion)
+      : countries
+          .filter((country) => country.region === selectedRegion)
+          .filter((country) =>
+            country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+    // return selectedRegion === "All Regions" && !searchTerm
+    //   ? countries
+    //   : countries.filter((country) =>
+    //       country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+    //     );
   };
 
   return (
@@ -47,7 +62,9 @@ const SearchBar = () => {
         />
       </div>
       <div className="content">
-        <RenderedItems countries={filteredCountries(selectedRegion)} />
+        <RenderedItems
+          countries={filteredCountries(selectedRegion, searchTerm)}
+        />
       </div>
     </div>
   );

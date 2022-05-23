@@ -10,7 +10,7 @@ const InputSearch = ({ searchTerm, handleSearchTerm }) => {
       clearTimeout(timerId);
     };
   }, [term]);
-  console.log(searchTerm);
+  //   console.log(searchTerm);
   const handleChange = (e) => {
     setTerm(e.target.value);
   };
