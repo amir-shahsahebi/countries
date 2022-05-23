@@ -5,7 +5,11 @@ const RenderedItems = ({ countries }) => {
     .map((country) => {
       return (
         <div className="card" key={country.name.common}>
-          <img src={country.flags.svg} alt="country.name.common" />
+          <img
+            className="first-image"
+            src={country.flags.svg}
+            alt="country.name.common"
+          />
           <div className="card-text">
             <h3 className="country-name">{country.name.common}</h3>
             <p>
@@ -19,7 +23,11 @@ const RenderedItems = ({ countries }) => {
               Capital: <span className="light-text">{country.capital}</span>
             </p>
           </div>
-          <img className="second-image"></img>
+          <img
+            className="second-image"
+            src={country.coatOfArms.svg}
+            alt="coatOfArms"
+          />
         </div>
       );
     });
