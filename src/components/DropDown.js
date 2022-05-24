@@ -31,7 +31,15 @@ const DropDown = ({ optionList, handleRegionClick, selectedRegion }) => {
       <span onClick={() => setClicked(!clicked)} className="selectedValue">
         {selectedRegion}
       </span>
-      <div className="dropDown" style={!clicked ? { display: "none" } : null}>
+      {/* <div className="dropDown" style={!clicked ? { display: "none" } : null}> */}
+      <div
+        className="dropDown"
+        style={
+          !clicked
+            ? { display: "none", animation: "remove" }
+            : { animation: "drop 0.5s ease-out forwards" }
+        }
+      >
         <ul>
           {optionList
             .filter((option) => option !== selectedRegion)

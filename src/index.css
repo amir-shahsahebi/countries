@@ -118,13 +118,27 @@ i {
 }
 
 .dropDown {
-  margin-top: 10px;
+  margin-top: -40px;
   /* display: inline-block; */
   z-index: 10;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   position: absolute;
+  transition: all 0.5s;
 }
+@keyframes drop {
+  0% {
+    transform: translateY(5px);
+    opacity: 30%;
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+/* .selectedValue:hover .dropDown {
+  transform: translateY(50px);
+} */
+
 .dropDown ul {
   background-color: var(--third-color);
   border-radius: 5px;
@@ -296,4 +310,94 @@ button {
   font-weight: 100;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+@media screen and (max-width: 580px) {
+  .search input {
+    width: 120px;
+    color: aqua;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .switch span {
+    display: none;
+  }
+  .switch {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    font-size: 24px;
+  }
+  nav {
+    position: relative;
+    justify-content: center;
+  }
+  .search input {
+    width: 120px;
+  }
+  .searchBar {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: aqua;
+    margin-top: 20px;
+    padding: 20px 10px;
+    position: absolute;
+    z-index: 8;
+    top: 0;
+    left: 2rem;
+    width: 21rem;
+  }
+
+  .search {
+    padding: 5px;
+  }
+
+  .search input {
+    width: 8rem;
+    height: 20px;
+  }
+  .selectedValue {
+    display: inline-block;
+    width: 5.5rem;
+    line-height: 20px;
+    background-color: var(--third-color);
+    padding: 5px 10px;
+    padding-left: 15px;
+    border-radius: 5px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    /* text-align: center; */
+    /* color: red; */
+  }
+
+  .dropDown {
+    margin-top: -40px;
+    /* display: inline-block; */
+    z-index: 10;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    position: absolute;
+    transition: all 0.5s;
+  }
+  @keyframes drop {
+    0% {
+      transform: translateY(5px);
+      opacity: 30%;
+    }
+    100% {
+      transform: translateY(50px);
+    }
+  }
+
+  .dropDown ul li {
+    width: 5.5rem;
+    padding: 4px 10px;
+    line-height: 20px;
+    /* text-align: center; */
+    padding-left: 15px;
+    border-bottom: var(--second-color) 0.5px solid;
+  }
 }
