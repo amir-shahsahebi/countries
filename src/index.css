@@ -274,9 +274,6 @@ button {
   padding-left: 50px;
 }
 
-.h2 {
-}
-
 .middle-texts {
   padding-top: 30px;
   display: flex;
@@ -360,13 +357,13 @@ button {
     /* background-color: var(--fifth-color); */
     background-color: var(--third-color);
     margin-top: 20px;
-    padding: 20px 10px;
+    padding: 20px 0px;
     position: absolute;
     z-index: 8;
     top: -1px;
     /* top: 20rem; */
-    left: -25rem;
-    width: 21rem;
+    left: -25.5rem;
+    width: 20rem;
     border-radius: 10px;
     /* animation: barMoveIn 1s forwards; */
     /* animation: barMoveOut 1s infinite; */
@@ -437,5 +434,59 @@ button {
     /* text-align: center; */
     padding-left: 15px;
     border-bottom: var(--second-color) 0.5px solid;
+  }
+  /* ////////////////////////////// */
+  .country-container {
+    width: 300px;
+    margin: 40px auto;
+  }
+  .single-image {
+    width: 300px;
+    height: 176px;
+  }
+  .single-page-texts {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+  }
+  h2 {
+    margin-top: 15px;
+  }
+
+  .middle-texts {
+    display: flex;
+    flex-flow: column;
+    line-height: 30px;
+    padding-top: 20px;
+    justify-content: flex-start;
+    align-self: flex-start;
+  }
+  .bottom-text {
+    padding-top: 0px;
+    display: flex;
+    flex-flow: column;
+    /* background-color: aqua; */
+    justify-content: flex-start;
+    min-height: remove;
+  }
+
+  .bottom-right {
+    /* margin-left: 5px; */
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    min-height: remove;
+    height: 6rem;
+    justify-content: flex-start;
+    /* align-items: flex-start; */
+    /* justify-content: space-around; */
+  }
+
+  .countryName {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 100;
   }
 }

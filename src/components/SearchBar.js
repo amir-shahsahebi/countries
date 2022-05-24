@@ -55,6 +55,7 @@ const SearchBar = ({ AllCountries }) => {
       setBarClick(false);
     };
     window.addEventListener("click", checkClick);
+    ref2.current.style.animation = "remove";
     return () => {
       window.removeEventListener("click", checkClick);
     };
@@ -66,7 +67,7 @@ const SearchBar = ({ AllCountries }) => {
   const handleSearchTerm = (term) => {
     setSearchTerm(term);
   };
-  // console.log(barClick);
+  console.log(barClick);
   return (
     <div>
       <div ref={ref1} onClick={() => setBarClick(!barClick)} className="bars">
@@ -77,8 +78,12 @@ const SearchBar = ({ AllCountries }) => {
         className="searchBar"
         style={
           barClick
-            ? { animation: "barMoveIn 0.6s forwards" }
-            : { animation: "barMoveOut 0.5s forwards" }
+            ? {
+                animation: "barMoveIn 0.6s forwards",
+              }
+            : {
+                animation: "barMoveOut 0.5s forwards",
+              }
         }
       >
         <InputSearch
