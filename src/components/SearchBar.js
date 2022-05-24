@@ -67,7 +67,7 @@ const SearchBar = ({ AllCountries }) => {
   const handleSearchTerm = (term) => {
     setSearchTerm(term);
   };
-  console.log(barClick);
+  // console.log(barClick);
   return (
     <div>
       <div ref={ref1} onClick={() => setBarClick(!barClick)} className="bars">
@@ -100,6 +100,7 @@ const SearchBar = ({ AllCountries }) => {
         <RenderedItems
           // countries={filteredCountries(selectedRegion, searchTerm)}
           countries={countries}
+          searchTerm={searchTerm}
         />
       </div>
     </div>

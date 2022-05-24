@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const RenderedItems = ({ countries }) => {
+const RenderedItems = ({ countries, searchTerm }) => {
   //   console.log(countries);
   const cards = countries
     ?.filter((country) => country.population)
@@ -40,7 +40,18 @@ const RenderedItems = ({ countries }) => {
         </Link>
       );
     });
-  return <div className="card-container">{cards}</div>;
+  // console.log(countries);
+  return (
+    <>
+      {countries.length === 0 && !searchTerm ? (
+        <div className="loading-container">
+          <div className="loading-out"></div>
+          <span className="loading-text">LOADING</span>
+        </div>
+      ) : null}
+      <div className="card-container">{cards}</div>
+    </>
+  );
 };
 
 export default RenderedItems;
