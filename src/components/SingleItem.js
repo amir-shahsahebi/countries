@@ -1,17 +1,36 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { getCountry } from "../apis/getCountries";
+import { Link, useNavigate, useParams } from "react-router-dom";
+// import { getCountry } from "../apis/getCountries";
 
-const SingleItem = () => {
+const SingleItem = ({ AllCountries }) => {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const [country, setCountry] = useState(null);
+  let param = useParams();
   useEffect(() => {
-    getCountry(location.state.toLowerCase()).then((res) =>
-      setCountry(res.data[0])
+    setCountry(
+      AllCountries.filter(
+        (country) => country.name.common.toLowerCase() === param.countryName
+      )[0]
     );
-  }, []);
+    // getCountry(location.state.toLowerCase()).then((res) =>
+    //   setCountry(res.data[0])
+    // );
+  }, [AllCountries, param.countryName]);
 
+  console.log(country);
+  const borderCountries = [];
+  country &&
+    country.borders?.forEach((element) =>
+      borderCountries.push(
+        AllCountries.filter((country) => country.cca3 === element)[0].name
+          .common
+      )
+    );
+
+  // console.log(borderCountries);
+
+  // console.log(location.state, country);
   const details = country ? (
     <div>
       <div className="country-container">
@@ -64,14 +83,32 @@ const SingleItem = () => {
               </p>
             </div>
           </div>
+          <div className="bottom-text">
+            <div className="bottom-left">Border Countries:</div>
+            <div className="bottom-right">
+              {borderCountries &&
+                borderCountries.map((countryName) => {
+                  return (
+                    <Link
+                      key={countryName}
+                      state={countryName.toLowerCase()}
+                      to={`/${countryName.toLowerCase()}`}
+                      className="link"
+                    >
+                      <span className="countryName">{countryName}</span>
+                    </Link>
+                  );
+                })}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   ) : null;
-  console.log(country && Object.values(country.currencies));
+  // console.log(country);
   return (
     <div>
-      <button onClick={() => navigate("/")}>Back</button>
+      <button onClick={() => navigate(-1)}>Back</button>
       {details}
     </div>
   );

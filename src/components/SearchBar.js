@@ -1,5 +1,5 @@
 import DropDown from "./DropDown";
-import { getCountries } from "../apis/getCountries";
+// import { getCountries } from "../apis/getCountries";
 import { useEffect, useState } from "react";
 import RenderedItems from "./RenderedItems";
 import InputSearch from "./InputSearch";
@@ -12,15 +12,15 @@ const optionList = [
   "Europe",
   "Oceania",
 ];
-const SearchBar = () => {
-  const [AllCountries, setAllCountries] = useState([]);
+const SearchBar = ({ AllCountries }) => {
+  // const [AllCountries, setAllCountries] = useState([]);
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState(optionList[0]);
   //   console.log(countries);
-  useEffect(() => {
-    getCountries().then((res) => setAllCountries(res.data));
-  }, []);
+  // useEffect(() => {
+  //   getCountries().then((res) => setAllCountries(res.data));
+  // }, []);
 
   useEffect(() => {
     selectedRegion === "All Regions" && !searchTerm

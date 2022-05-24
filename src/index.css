@@ -30,11 +30,14 @@ input,
 span,
 input,
 i,
+button,
 ::placeholder {
   color: var(--second-color);
   /* color: red; */
 }
-
+h1 {
+  cursor: pointer;
+}
 nav {
   display: flex;
   flex-flow: row wrap;
@@ -264,4 +267,33 @@ button {
   flex-flow: row wrap;
   line-height: 35px;
   justify-content: space-between;
+}
+
+.bottom-text {
+  margin-top: 5px;
+  padding-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  /* background-color: aqua; */
+  justify-content: flex-start;
+  min-height: 25%;
+}
+
+.bottom-right {
+  /* margin-left: 5px; */
+  /* margin-top: 20px; */
+  display: flex;
+  flex-flow: row wrap;
+  /* align-items: flex-start; */
+  /* justify-content: space-around; */
+}
+
+.countryName {
+  background-color: var(--third-color);
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 100;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
