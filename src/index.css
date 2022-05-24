@@ -9,12 +9,14 @@
   --first-color: #f1f2f6;
   --second-color: black;
   --third-color: #fff;
+  --fifth-color: rgba(255, 255, 255, 0.8);
 }
 
 .dark-mode {
   --first-color: #393943;
   --second-color: white;
   --third-color: #2e2f36;
+  --fifth-color: rgba(0, 0, 0, 0.8);
 }
 
 body {
@@ -312,6 +314,10 @@ button {
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
+.bars {
+  display: none;
+}
+
 @media screen and (max-width: 580px) {
   .search input {
     width: 120px;
@@ -325,10 +331,20 @@ button {
   }
   .switch {
     position: absolute;
-    right: 10px;
-    top: 20px;
+    right: 12px;
+    top: 19px;
     font-size: 24px;
   }
+
+  .bars {
+    position: absolute;
+    top: 44px;
+    left: 30px;
+    font-size: 20px;
+    display: block;
+    /* background-color: bisque; */
+  }
+
   nav {
     position: relative;
     justify-content: center;
@@ -341,14 +357,45 @@ button {
     flex-flow: row;
     justify-content: space-around;
     align-items: flex-start;
-    background-color: aqua;
+    /* background-color: var(--fifth-color); */
+    background-color: var(--third-color);
     margin-top: 20px;
     padding: 20px 10px;
     position: absolute;
     z-index: 8;
-    top: 0;
-    left: 2rem;
+    top: -1px;
+    /* top: 20rem; */
+    left: -25rem;
     width: 21rem;
+    border-radius: 10px;
+    /* animation: barMoveIn 1s forwards; */
+    /* animation: barMoveOut 1s infinite; */
+  }
+
+  @keyframes barMoveIn {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    /* 50% {
+      transform: translateX(6rem);
+      opacity: 0;
+    } */
+    100% {
+      transform: translateX(29rem);
+      opacity: 100%;
+    }
+  }
+
+  @keyframes barMoveOut {
+    0% {
+      transform: translateX(30rem);
+      opacity: 100%;
+    }
+    100% {
+      transform: translateX(0rem);
+      opacity: 0;
+    }
   }
 
   .search {
@@ -381,15 +428,6 @@ button {
       rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     position: absolute;
     transition: all 0.5s;
-  }
-  @keyframes drop {
-    0% {
-      transform: translateY(5px);
-      opacity: 30%;
-    }
-    100% {
-      transform: translateY(50px);
-    }
   }
 
   .dropDown ul li {
