@@ -349,7 +349,6 @@ button {
 @media screen and (max-width: 580px) {
   .search input {
     width: 120px;
-    color: aqua;
   }
 }
 
