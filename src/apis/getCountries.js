@@ -8,3 +8,14 @@ export const getCountries = async () => {
     console.log(err);
   }
 };
+
+export const getCountry = async (name) => {
+  try {
+    const res = await axios.get(
+      `https://restcountries.com/v3.1/name/${name}?fullText=true`
+    );
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+};

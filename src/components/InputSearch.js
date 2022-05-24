@@ -5,7 +5,7 @@ const InputSearch = ({ searchTerm, handleSearchTerm }) => {
   useEffect(() => {
     let timerId = setTimeout(() => {
       handleSearchTerm(term);
-    }, 1000);
+    }, 500);
     return () => {
       clearTimeout(timerId);
     };

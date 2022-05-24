@@ -1,4 +1,4 @@
-const Navbar = ({ colorMode }) => {
+const Navbar = ({ colorMode, lightMode }) => {
   return (
     <nav>
       <h1>Where is the world?</h1>
@@ -7,8 +7,8 @@ const Navbar = ({ colorMode }) => {
         onClick={() => colorMode()}
         className="switch"
       >
-        <i className="fas fa-sun"></i>
-        <span>Light Mode</span>
+        <i className={!lightMode ? "fas fa-sun" : "fas fa-moon"}></i>
+        <span>{!lightMode ? "Light Mode" : "Night Mode"}</span>
       </span>
     </nav>
   );

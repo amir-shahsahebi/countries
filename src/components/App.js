@@ -2,6 +2,9 @@ import "../index.css";
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SingleItem from "./SingleItem";
+
 function App() {
   const [lightMode, setLightMode] = useState(true);
   useEffect(() => {
@@ -18,8 +21,13 @@ function App() {
 
   return (
     <div>
-      <Navbar colorMode={handleColor} />
-      <SearchBar />
+      <Router>
+        <Navbar colorMode={handleColor} lightMode={lightMode} />
+        <Routes>
+          <Route path="/" element={<SearchBar />} />
+          <Route path=":countryName" element={<SingleItem />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
