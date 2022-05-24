@@ -365,7 +365,7 @@ button {
   }
 }
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 420px) {
   .switch span {
     display: none;
   }
